@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="consulta">
-      <form action="">
+      <form action="" method="post">
         <select name="especialidad" id="especialidad">
           <% rows_doctor.forEach(function(especialidad) { %>
           <option value="<%= especialidad.especialidad %>">
@@ -32,9 +32,9 @@
 
         <div id="cover-ctn-search"></div>
 
-        <input type="date" id="fecha" value="<%= fechaActual %>" />
+        <input type="date" id="fecha" min="<%= fechaActual%>" value="<%= fechaActual %>" />
 
-        <button>consultar</button>
+        <button type="submit">consultar</button>
       </form>
     </div>
   </body>
