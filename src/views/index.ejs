@@ -19,7 +19,7 @@
         </select>
 
         <div id="ctn-bars-search">
-          <input type="text" id="doctor" placeholder="Nombre del Doctor" />
+          <input type="text" name="doctor" id="doctor" placeholder="Nombre del Doctor" />
         </div>
 
         <ul id="caja-busqueda">
@@ -32,7 +32,7 @@
 
         <div id="cover-ctn-search"></div>
 
-        <input type="date" id="fecha" min="<%= fechaActual%>" value="<%= fechaActual %>" />
+        <input name="fecha" type="date" id="fecha" min="<%= fechaActual%>" value="<%= fechaActual %>" />
 
         <button type="submit">consultar</button>
       </form>
