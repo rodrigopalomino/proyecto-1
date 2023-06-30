@@ -1,0 +1,42 @@
+/* buscador */
+
+#ctn-bars-search input{
+    display: block;
+    margin: auto;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+    outline: 0;
+    height: 10px;
+}
+
+#caja-busqueda{
+    position: fixed;
+    top: 40px;
+    background: white;
+    z-index: 8;
+    left: 49%;
+    width: 430px;
+    transform: translateX(-51%);
+    overflow: hidden;
+    display: none;
+}
+
+#caja-busqueda li{
+    list-style: none;
+    overflow: hidden;
+}
+
+#caja-busqueda li a{
+    display: block;
+    width: 430px;
+    color: black;
+    padding: 12px 20px;
+    overflow: hidden;
+}
+
+#caja-busqueda li a:hover{
+    cursor: pointer;
+    color: blue;
+    background-color: lightgray;
+}

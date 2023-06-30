@@ -1,40 +1,34 @@
-import { pool } from "../db";
+import { pool } from "../db.js";
 
-export function obtener() {
-  let especialidad = document.getElementById("especialidad");
-  let doctor = document.getElementById("doctor");
-  let fecha = document.getElementById("fecha");
+export const principal =async (req, res) => {
+  
+  const[rows_doctor]= await pool.query("select * from doctor")
+  
+  const fechaActual=new Date().toISOString().split('T')[0];
 
-  const cita = [especialidad, doctor, fecha];
+  res.render('index',{rows_doctor,fechaActual});
+};
 
-  return cita;
-}
+export const buscador=async(req,res)=>{
+  barra=document.getElementById("ctn-bars-search");
+  cover=document.getElementById("cover-ctn-search");
+  input=document.getElementById("doctor")
+  box_search=document.getElementById("caja-busqueda")
 
-export function consultarEspeDB(){
-    pool.query("Select especialidad from doctor",function(error,resultado,fields)){
-        if(error){
-            console.log(error)
-        }else{
-            console.log(resultados)
-        }
+  filtro=input.value.toUpperCase();
+  li=box_search.getElementByTagName("li")
+
+  //filtro de elementos
+  for(i=0;i<li.lengh;i++){
+    a=li[i].getElementByTagName("a")[0]
+    textValue=a.textContent || a.innerText;
+
+    if(textValue.toUpperCase().indexOf(filtro)>-1){
+      li[i].style.display="";
+      box_search.style.display="block";
     }
+
+  }
+
+
 }
-
-export function consultarDoctDB(){
-    let especialidad=document.getElementById("especialidad")
-    pool.query("Select nombre from doctor where especialidad="+especialidad,function(error,resultado,fields)){
-        if(error){
-            console.log(error)
-        }else{
-            console.log(resultados)
-        }
-    }
-}
-
-export function Fechas() {
-    pool.query("select ")
-}
-
-
-
-

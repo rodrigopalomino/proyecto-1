@@ -1,9 +1,8 @@
 import { Router } from "express";
+import { principal } from "../controllers/indexFunc.js";
 
-const router = Router()
+const router = Router();
 
+router.get('/', principal);
 
-router.get('/', (req,res) => res.render('index'))
-
-
-export default router
+export default router;
