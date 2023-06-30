@@ -12,7 +12,7 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 app.set('view engine', 'ejs')
 app.set('views', join(__dirname,'views'))
-app.use(express.static(join(__dirname,'style')))
+app.use(express.static(join(__dirname,'styles')))
 
 
 app.use(indexRoutes)
