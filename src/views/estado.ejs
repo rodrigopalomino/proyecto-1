@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estado.style.css">
+    <title>Estado</title>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1 class="page-title">Hospital</h1>
+            <nav class="navigation-menu">
+                <ul>
+                    <li><a href="#" class="menu-item">Home</a></li>
+                    <li><a href="#" class="menu-item">Consultas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <h1>FALTA</h1>
+    <div class="table-conteiner">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th-codigo">Codigo</th>
+                    <th class="th-estado">Estado</th>
+                    <th class="th-paciente">Paciente</th>
+                    <th class="th-doctor">Doctor</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+
+                    <tr>
+                        <td>falta</td>
+                        <td>falta</td>
+                        <td>falta</td>
+                        <td>falta</td>
+                    </tr>
+
+    
+            </tbody>
+        </table>
+    </div>
+
+    <h1>Todas las consultas</h1>
+    <div class="table-conteiner">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th-codigo">Codigo</th>
+                    <th class="th-estado">Estado</th>
+                    <th class="th-paciente">Paciente</th>
+                    <th class="th-doctor">Doctor</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <% codigo.forEach((codigo, index) => { %>
+                <tr>
+                    <td><%= codigo %></td>
+                    <td><%= lista_estado[index] %></td>
+                    <td><%= lista_nombre[index] %></td>
+                    <td><%= lista_doctores[index] %></td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+        </div>
+
+</body>
+</html>

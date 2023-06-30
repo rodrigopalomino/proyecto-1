@@ -8,4 +8,9 @@ router.get('/', principal);
 router.post("/",enviar)
 
 
-export default router;
+router.get('/estado', getEstados)
+// router.get('/estado', (req,res) => res.render('estado'))
+// router.get('/estado', (req,res) => res.send("dsa"))
+
+
+export default router

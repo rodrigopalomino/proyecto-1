@@ -16,9 +16,9 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 app.use(express.static("public"));
 
-app.set("view engine", "ejs");
-app.set("views", join(__dirname, "views"));
-app.use(express.static(join(__dirname, "styles")));
+app.set('view engine', 'ejs')
+app.set('views', join(__dirname,'views'))
+app.use(express.static(join(__dirname,'styles')))
 
 app.use(indexRoutes);
 
