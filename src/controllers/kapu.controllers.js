@@ -13,7 +13,6 @@ export const postFormulario = async (req, res) => {
     const nombre = req.body.nombre
     const telefono = req.body.telefono
     const dni = req.body.dni
-    const especialidad = req.body.especialidad
     const doctor = req.body.doctor
     const fecha = req.body.fecha
 

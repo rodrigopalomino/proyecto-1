@@ -9,7 +9,12 @@
 <body>
     <%- include('partials/menu.ejs') %>
 
-    <h1>Tu consulta</h1>
+    <form method="post">
+        <label for="">buscar</label>
+        <input type="text">
+    </form>
+
+    <h1>Todas las consultas</h1>
     <div class="table-conteiner">
         <table>
             <thead>
@@ -22,17 +27,18 @@
                 </tr>
             </thead>
             <tbody>
+                <% tabla_completa.forEach( fila => { %>
                 <tr>
-                    <td><%= tabla_completa[tabla_completa.length-1].codigo %></td>
-                    <td><%= tabla_completa[tabla_completa.length-1].estado==0 ? "atendiendo" : "atendido"%></td>
-                    <td><%= tabla_completa[tabla_completa.length-1].nombre %></td>
-                    <td><%= tabla_completa[tabla_completa.length-1].doctor %></td>
-                    <td><%= (tabla_completa[tabla_completa.length-1].fecha).toString().substring(0, 10) %></td>
+                    <td> <%= fila.codigo %> </td>
+                    <td> <%= fila.estado= 0 ? "atendiendo" : "atendido"  %> </td>
+                    <td> <%= fila.nombre %> </td>
+                    <td> <%= fila.doctor %> </td>
+                    <td> <%= (fila.fecha).toString().substring(0, 10) %> </td>
                 </tr>
+                <% }) %>
             </tbody>
         </table>
     </div>
-
 
 </body>
 </html>
