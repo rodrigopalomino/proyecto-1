@@ -7,17 +7,7 @@
     <title>Estado</title>
 </head>
 <body>
-    <header>
-        <div class="menu">
-            <h1 class="page-title">Hospital</h1>
-            <nav class="navigation-menu">
-                <ul>
-                    <li><a href="#" class="menu-item">Home</a></li>
-                    <li><a href="#" class="menu-item">Consultas</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <%- include('partials/menu.ejs') %>
 
     <h1>FALTA</h1>
     <div class="table-conteiner">
@@ -28,16 +18,18 @@
                     <th class="th-estado">Estado</th>
                     <th class="th-paciente">Paciente</th>
                     <th class="th-doctor">Doctor</th>
+                    <th class="th-fecha">fecha</th>
                     
                 </tr>
             </thead>
             <tbody>
 
                     <tr>
-                        <td>falta</td>
-                        <td>falta</td>
-                        <td>falta</td>
-                        <td>falta</td>
+                        <td><%= table_codigo %></td>
+                        <td><%= table_estado %></td>
+                        <td><%= nombre_paciente %></td>
+                        <td><%= nombre_doctor %></td>
+                        <td><%= fecha %></td>
                     </tr>
 
     
@@ -54,7 +46,7 @@
                     <th class="th-estado">Estado</th>
                     <th class="th-paciente">Paciente</th>
                     <th class="th-doctor">Doctor</th>
-                    
+                    <th class="th-fecha">Fecha</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,6 +56,7 @@
                     <td><%= lista_estado[index] %></td>
                     <td><%= lista_nombre[index] %></td>
                     <td><%= lista_doctores[index] %></td>
+                    <td><%= lista_fechas1[index] %></td>
                 </tr>
                 <% }) %>
             </tbody>

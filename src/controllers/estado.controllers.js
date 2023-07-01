@@ -11,9 +11,25 @@ export const getEstados = async (req,res) => {
     const estado = rows_cita.map(row => row.estado)
     const id_doctor = rows_cita.map(row => row.id_doctor)
     const dni_paciente = rows_cita.map(row => row.dni_paciente)
+    const lista_fechas = rows_cita.map(row => row.fecha )
+
+    const lista_fechas1 = lista_fechas.map(row => row.toString().substring(0, 10));
+
+    console.log(lista_fechas1)
+    console.log(lista_fechas)
+
     const lista_nombre = []
     const lista_doctores = []
 
+    const nombre_doctor =  req.query.doctor
+    const nombre_paciente =  req.query.nombre
+    const fecha =  req.query.fecha
+
+    const table_codigo = rows_cita[rows_cita.length-1].codigo
+    let table_estado = rows_cita[rows_cita.length-1].estado
+
+    if(table_estado == 0) table_estado = "atendiendo"
+    else table_estado = "atendido"
 
 
     rows_paciente.forEach(element => {
@@ -32,12 +48,13 @@ export const getEstados = async (req,res) => {
         })
     });
     
-
+    //estado 1 = atendido , 0 = atendiendo
     const lista_estado = estado.map(row => row == 1 ? 'atendido' : 'atendiendo')
-    console.log("codigo : ",codigo)
-    console.log("lista_estadp",lista_estado)
-    console.log("nombre",lista_estado)
-    console.log("doctores",lista_doctores)
+    
 
-    res.render('estado',{codigo, lista_estado, lista_nombre, lista_doctores})
+    res.render('estado',{codigo, lista_estado, lista_nombre, lista_doctores, nombre_doctor, nombre_paciente, fecha, table_codigo, table_estado,lista_fechas, lista_fechas1 })
+}
+
+export const postEstado = async (req, res) => {
+    res.redirect('estadoBuscado')
 }

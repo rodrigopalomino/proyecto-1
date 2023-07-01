@@ -5,7 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+    <%- include('partials/menu.ejs') %>
+    <h1>formulario</h1>
+
+    <form method="post">
+
+        <label for="">nombre</label>
+        <input type="text" id="nombre" name="nombre">
+
+        <label for="">telefono</label>
+        <input type="text" id="telefono" name="telefono">
+
+        <label for="">dni</label>
+        <input type="text" id="dni" name="dni">
+
+        <label for="">especialidad</label>
+        <input type="text" id="especialidad" name="especialidad" value="<%= especialidad %>">
+
+        <label for="">doctor</label>
+        <input type="text" id="doctor" name="doctor" value="<%= doctor %>">
+
+        <label for="">fecha</label>
+        <input type="text" id="fecha" name="fecha" value="<%= fecha %>">
+        
+        <button type="submit">estado</button>
+    </form>
+
 </body>
 </html>
