@@ -1,0 +1,23 @@
+.menu {
+    background: #08a783;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 50px;
+}
+
+.page-title {
+    color: white;
+    margin-left: 200px;
+    margin-top: 6px;
+}
+
+.menu ul {
+    list-style: none;
+    text-align: right;
+}
+
+.menu li {
+    display: inline-block;
+    margin-top: 14px;
+    margin-right: 100px;
+}
