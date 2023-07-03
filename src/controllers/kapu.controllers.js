@@ -24,8 +24,21 @@ export const postFormulario = async (req, res) => {
             id_doctor = row.id;
         }
     });
-
-    await pool.query('INSERT INTO paciente (dni, nombre, telefono) VALUES (?, ?, ?)', [dni, nombre, telefono])
+    // Validar Si el Paciente no Existe
+    let boolDni = false
+    const [rows_pacientes] = await pool.query('select * from paciente')
+    rows_pacientes.forEach(row => {
+        if (row.dni == dni){
+            boolDni = true
+        }
+        else{
+            boolDni = false
+        }
+    });
+    if (!boolDni){
+        // Ingresar el paciente si no existe
+        await pool.query('INSERT INTO paciente (dni, nombre, telefono) VALUES (?, ?, ?)', [dni, nombre, telefono])
+    }
 
     await pool.query('INSERT INTO cita (estado, id_doctor, dni_paciente, fecha) VALUES (?, ?, ?, ?)', [0, id_doctor, dni, fecha])
 
