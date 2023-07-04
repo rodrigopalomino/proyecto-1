@@ -24,7 +24,7 @@ export const postFormulario = async (req, res) => {
             id_doctor = row.id;
         }
     });
-
+    
     await pool.query('INSERT INTO paciente (dni, nombre, telefono) VALUES (?, ?, ?)', [dni, nombre, telefono])
 
     await pool.query('INSERT INTO cita (estado, id_doctor, dni_paciente, fecha) VALUES (?, ?, ?, ?)', [0, id_doctor, dni, fecha])
