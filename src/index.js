@@ -23,4 +23,4 @@ app.use(express.static(join(__dirname,'styles')))
 app.use(indexRoutes);
 
 app.listen(3000);
-console.log("corriendo en el puerto 3000");
+console.log("corriendo en el puerto 30004");
