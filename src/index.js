@@ -3,6 +3,7 @@ import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import BodyParser  from "body-parser";
 import indexRoutes from "./routers/index.routes.js";
+import { PORT } from './config.js'
 
 const app = express();
 
@@ -22,5 +23,5 @@ app.use(express.static(join(__dirname,'styles')))
 
 app.use(indexRoutes);
 
-app.listen(3000);
-console.log("corriendo en el puerto 30004");
+app.listen(PORT);
+console.log("corriendo en el puerto",PORT);
