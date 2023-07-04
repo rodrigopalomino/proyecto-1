@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estado.style.css">
+    <title>Estado</title>
+</head>
+<body>
+    <%- include('partials/menu.ejs') %>
+
+    <form method="post">
+        <label for="">buscar</label>
+        <input type="text" id="codigo" name="codigo">
+        <button type="submit">buscar</button>
+    </form>
+
+    <h1>Todas las consultas</h1>
+    <div class="table-conteiner">
+        <table>
+            <thead>
+                <tr>
+                    <th class="th-codigo">Codigo</th>
+                    <th class="th-estado">Estado</th>
+                    <th class="th-paciente">Paciente</th>
+                    <th class="th-doctor">Doctor</th>
+                    <th class="th-fecha">Fecha</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% tabla_completa.forEach( fila => { %>
+                <tr>
+                    <td> <%= fila.codigo %> </td>
+                    <td class='<%= fila.estado== 0 ? "atendiendo" : "atendido"  %>'> <%= fila.estado== 0 ? "atendiendo" : "atendido"  %> </td>
+                    <td> <%= fila.nombre %> </td>
+                    <td> <%= fila.doctor %> </td>
+                    <td> <%= (fila.fecha).toString().substring(0, 10) %> </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

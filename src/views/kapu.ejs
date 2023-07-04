@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <%- include('partials/menu.ejs') %>
+
+    <div class="formulario-p">
+      <form class="formulario" method="post">
+        <h2>CITA</h2>
+        <div class="campo">
+          <label for="">nombre</label>
+          <input type="text" id="nombre" name="nombre" />
+        </div>
+
+        <div class="campo">
+          <label for="">telefono</label>
+          <input type="text" id="telefono" name="telefono" />
+        </div>
+
+        <div class="campo">
+          <label for="">dni</label>
+          <input type="text" id="dni" name="dni" />
+        </div>
+
+        <div class="campo">
+          <label for="">especialidad</label>
+          <input
+            type="text"
+            id="especialidad"
+            name="especialidad"
+            value="<%= especialidad %>"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="">doctor</label>
+          <input type="text" id="doctor" name="doctor" value="<%= doctor %>" />
+        </div>
+
+        <div class="campo">
+          <label for="">fecha</label>
+          <input type="text" id="fecha" name="fecha" value="<%= fecha %>" />
+        </div>
+
+        <div class="campo">
+          <button type="submit">estado</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

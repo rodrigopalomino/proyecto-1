@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estado.style.css" />
+    <title>Estado</title>
+  </head>
+  <body>
+    <%- include('partials/menu.ejs') %>
+
+    <h1>Tus Citas</h1>
+
+    <div class="estado-consulta">
+      <div class="datos">
+        <h3>IdCita: <%= tabla_completa[tabla_completa.length-1].codigo %></h3>
+        <p>Paciente: <%= tabla_completa[tabla_completa.length-1].nombre %></p>
+        <p>Doctor: <%= tabla_completa[tabla_completa.length-1].doctor %></p>
+        <p>Fecha: <%= tabla_completa[tabla_completa.length-1].fecha_f %></p>
+      </div>
+
+      <div class="burbujas">
+        <div class="burbuja" id="procesando">
+          <div class="burbuja-icono">
+            <i class="fa-solid fa-stethoscope"></i>
+          </div>
+          <div class="sh">procesando</div>
+        </div>
+  
+        <div class="burbuja" id="atendiendo">
+          <div class="burbuja-icono">
+            <i class="fa-solid fa-user-doctor"></i>
+          </div>
+          <div class="sh">atendiendo</div>
+        </div>
+  
+        <div class="burbuja" id="finalizado">
+          <div class="burbuja-icono">
+            <i class="fa-regular fa-flag"></i>
+          </div>
+          <div class="sh">atendido</div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
+      estados.forEach(estado => {
+        if(estado==0){
+          document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
+          if(estado==1){
+            document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
+          }
+          if(estado==2){
+            document.getElementById("finalizado").style.backgroundColor="rgba(76, 216, 118, 255)"
+          }
+        }        
+      });
+    </script>
+    
+  </body>
+</html>

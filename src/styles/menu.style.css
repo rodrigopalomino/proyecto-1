@@ -1,0 +1,28 @@
+body{
+    font-family: 'Geologica', sans-serif;
+}
+
+.titulo{
+    text-align: center;
+    padding: 2px;
+    background-color: rgba(76,216,118,255);
+    width: 100%;
+}
+
+.menu{
+    text-align: center;
+    background-color: black;
+    padding: 2px;
+    width: 100%;
+}
+
+.menu a{
+    text-decoration: none;
+    color: rgba(76,216,118,255);
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+.menu a:hover{
+    color: wheat;
+}
