@@ -11,8 +11,9 @@
     <%- include('partials/menu.ejs') %>
     <link rel="stylesheet" href="estado.style.css" />
     <h1>Tus Citas</h1>
-    
+
     <div class="estado-consulta">
+<<<<<<< HEAD
       <h3 class="estado-h3">ID cita : <%= tabla_completa[tabla_completa.length-1].codigo %></h3>
 
       <div class="estado-grupo">
@@ -54,6 +55,8 @@
 
 
     <!-- <div class="estado-consulta">
+=======
+>>>>>>> 7b67f17548f47d6c9013f0a9d583faaea7f350e6
       <div class="datos">
         <h3>IdCita: </h3>
         <p>Paciente: <%= tabla_completa[tabla_completa.length-1].nombre %></p>
@@ -83,7 +86,7 @@
           <div class="sh">atendido</div>
         </div>
       </div>
-    </div> -->
+    </div> 
 
     <script>
       const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
@@ -93,10 +96,6 @@
         }
         if(estado==1){
           document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
-            document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
-          }
-          if(estado==2){
-            document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("finalizado").style.backgroundColor="rgba(76, 216, 118, 255)"
           }
