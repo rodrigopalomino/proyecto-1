@@ -23,9 +23,29 @@
             </option>
             <% }); %>
           </select>
-  
+          <!-- Elegir doctor -->
           <div class="doctor" id="ctn-bars-search">
-            <input type="text" name="doctor" id="doctor" placeholder="Nombre del Doctor" />
+            <!-- Imput DE DOCTOR
+            <input type="text" name="doctor" id="doctor" placeholder="Nombre del Doctor" list="doctores" />
+            <datalist id="doctores">
+            <% rows_doctor.forEach(function(nombre) { %>
+              <option value="<%= nombre.nombre %>">
+                <%= nombre.nombre %>
+              </option>
+            <% }); %>
+            <select class="especialidad" name="especialidad" id="especialidad">
+              <option value="--">Nombre del Doctor</option>
+              <% rows_doctor.forEach(function(nombre) { %>
+              <option value="<%= nombre.nombre %>">
+                <%= nombre.nombre %>
+              </option>
+              <% }); %>
+            </select>
+            -->
+            <form autocomplete="off">
+              <input type="text" id="input" placeholder="Type a nombre">
+              <ul class="list"></ul>
+          </form>
           </div>
   
           <!-- <ul id="caja-busqueda">
@@ -44,21 +64,52 @@
         </div>
       </form>
     </div>
+
+  <script>
+    let names = ["Eyder","Gianella"];
+let input = document.getElementById("input");
+input.addEventListener("keyup",(e) => {
+   removeElements();
+   for (let i of names) {
+
+      if (i.toLowerCase().startsWith(input.value.toLowerCase()) &&
+      input.value != "") {
+         let listItem = document.createElement("li");
+         listItem.classList.add("list-items");
+         listItem.style.cursor = "pointer";
+         listItem.setAttribute("onclick","displayNames('" + i + "')'");
+         let word = "<b>"+ i.substr(0,input.value.length) +"</b>";
+         word += i.substr(input.value.length);
+         listItem.innerHTML = word;
+         document.querySelector(".list").appendChild(listItem);
+      }
+   }
+});
+function displayNames(value) {
+   input.value = value;
+}
+function removeElements() {
+   let items = document.querySelectorAll(".list-items");
+   items.forEach((item) => {
+      item.remove();
+   })
+}
+  </script>
   </body>
 
   <script>
-    const input = document.getElementById("doctor");
+    const input2 = document.getElementById("doctor");
     const boxSearch = document.getElementById("caja-busqueda");
     const elemento=document.getElementsByClassName("busqueda-item")
 
     for(let i=0;i<elemento.length;i++){
       elemento[i].addEventListener("click",function(event){
         const clickeado=event.target.textContent
-        input.value=clickeado
+        input2.value=clickeado
       })
     }
 
-    input.addEventListener("input", function (event) {
+    input2.addEventListener("input", function (event) {
       const filtro = event.target.value.toUpperCase();
       const lis = boxSearch.getElementsByTagName("li");
 
@@ -78,5 +129,31 @@
         }
       }
     });
+
+    // Eyder Validar EL DOCTOR A INGRESAR
+// var input = document.querySelector('input2[name="doctor"]');
+// var datalist = document.querySelector('#doctores');
+
+// input.addEventListener('input', function() {
+//   var inputValue = input2.value.toLowerCase();
+//   var options = datalist.getElementsByTagName('option');
+//   var found = false;
+
+//   for (var i = 0; i < options.length; i++) {
+//     var optionValue = options[i].value.toLowerCase();
+
+//     if (optionValue === inputValue) {
+//       found = true;
+//       break;
+//     }
+//   }
+
+//   if (!found) {
+//     input.setCustomValidity('Seleccione una opción válida');
+//   } else {
+//     input.setCustomValidity('');
+//   }
+// });
+//Eyder 2
   </script>
 </html>
