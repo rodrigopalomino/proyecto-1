@@ -88,7 +88,7 @@ export const getMiConsulta2 = async (req,res) => {
 
     try {
         const codigo = req.body.codigo
-        const [tabla_completa] = await pool.query('SELECT c.codigo,c.estado, p.nombre, d.nombre as doctor, c.fecha FROM cita c JOIN paciente p ON p.dni = c.dni_paciente JOIN doctor d ON d.id = c.id_doctor where c.codigo = ? order by c.codigo;', [codigo])
+        const [tabla_completa] = await pool.query("SELECT c.codigo,c.estado, p.nombre, d.nombre as doctor, c.fecha FROM cita c JOIN paciente p ON p.dni = c.dni_paciente JOIN doctor d ON d.id = c.id_doctor where c.codigo = ? order by c.codigo;", [codigo])
         res.render("miconsulta", { tabla_completa })
     } catch (error) {
         return res.status(500).json({
