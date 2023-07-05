@@ -53,41 +53,6 @@
       </div>
     </div>
 
-
-    <!-- <div class="estado-consulta">
-=======
->>>>>>> 7b67f17548f47d6c9013f0a9d583faaea7f350e6
-      <div class="datos">
-        <h3>IdCita: </h3>
-        <p>Paciente: <%= tabla_completa[tabla_completa.length-1].nombre %></p>
-        <p>Doctor: <%= tabla_completa[tabla_completa.length-1].doctor %></p>
-        <p>Fecha: <%= tabla_completa[tabla_completa.length-1].fecha_f %></p>
-      </div>
-
-      <div class="burbujas">
-        <div class="burbuja" id="procesando">
-          <div class="burbuja-icono">
-            <i class="fa-solid fa-stethoscope"></i>
-          </div>
-          <div class="sh">procesando</div>
-        </div>
-
-        <div class="burbuja" id="atendiendo">
-          <div class="burbuja-icono">
-            <i class="fa-solid fa-user-doctor"></i>
-          </div>
-          <div class="sh">atendiendo</div>
-        </div>
-
-        <div class="burbuja" id="finalizado">
-          <div class="burbuja-icono">
-            <i class="fa-regular fa-flag"></i>
-          </div>
-          <div class="sh">atendido</div>
-        </div>
-      </div>
-    </div> 
-
     <script>
       const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
       estados.forEach(estado => {
