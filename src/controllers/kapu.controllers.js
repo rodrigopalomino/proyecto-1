@@ -25,7 +25,24 @@ export const postFormulario = async (req, res) => {
         }
     });
 
-    await pool.query('INSERT INTO paciente (dni, nombre, telefono) VALUES (?, ?, ?)', [dni, nombre, telefono])
+    const [tabla] = await pool.query('select dni from paciente')
+
+    let validar = true
+    tabla.forEach(f_dni => {
+        if(dni == f_dni.dni){
+            validar=false
+            console.log("==========")
+            console.log("dni : ",dni)
+            console.log("f_dni : ",f_dni.dni)
+            console.log("==========")
+        }
+        console.log("validar :",validar)
+    })
+
+    if (validar == true ) {
+        await pool.query('INSERT INTO paciente (dni, nombre, telefono) VALUES (?, ?, ?)', [dni, nombre, telefono])
+        console.log("se subio a la base de  datos")
+    }
 
     await pool.query('INSERT INTO cita (estado, id_doctor, dni_paciente, fecha) VALUES (?, ?, ?, ?)', [0, id_doctor, dni, fecha])
 
