@@ -1,15 +1,17 @@
 import { pool } from "../db.js";
 
 export const getFormulario = (req, res) => {
+    // Guarda las variables del primer formulario en variables locales
     const especialidad = req.query.especialidad
     const doctor = req.query.doctor
     const fecha = req.query.fecha
-
+    
 
     res.render('kapu', { especialidad, doctor, fecha })
 }
 
 export const postFormulario = async (req, res) => {
+    // Guarda las variables de los txt en variables locales 
     const nombre = req.body.nombre
     const telefono = req.body.telefono
     const dni = req.body.dni
