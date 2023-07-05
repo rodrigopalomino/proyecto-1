@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #e0e0e6;
+}
+
+h1 {
+    margin-left: 80px;
+    margin-top: 20px;
+}
+
+.table-conteiner {
+    width: 80%;
+    margin: 20px auto;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 80px;
+}
+
+table {
+    width: 100%;
+    background: white;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: rgb(76, 216, 118);
+    color: black;
+    height: 30px;
+}
+
+td {
+    height: 26px;
+}
+
+.atendido {
+    color: green;
+}
+
+.atendiendo {
+    color: red;
+}

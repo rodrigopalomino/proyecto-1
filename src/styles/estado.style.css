@@ -3,60 +3,21 @@
     margin: 0;
     box-sizing: border-box;
 }
-body {
-    background-color: #e0e0e6;
-}
 
-h1 {
-    margin-left: 80px;
-    margin-top: 20px;
-}
-
-.table-conteiner {
-    width: 80%;
-    margin: 20px auto;
-    border-radius: 5px;
-    overflow: hidden;
-    margin-bottom: 80px;
-}
-
-table {
-    width: 100%;
-    background: white;
-    text-align: center;
-    border-collapse: collapse;
-}
-
-th {
-    background-color: #08a783;
+.estado-consulta {
     color: white;
-    height: 28px;
 }
 
-td {
-    height: 26px;
+.estado-consulta {
+    display: grid;
 }
 
-.th-codigo {
-    width: 15%;
+.estado-h3 {
+    grid-column: span 3;
+    margin: 5px;
 }
 
-.th-estado {
-    width: 25%;
-}
 
-.th-paciente {
-    width: 30%;
-}
-
-.th-doctor {
-    width: 30%;
-}
-
-.atendido {
-    color: green;
-}
-
-.atendiendo {
-    color: red;
+.estado-grupo {
+    margin: 5px;
 }
