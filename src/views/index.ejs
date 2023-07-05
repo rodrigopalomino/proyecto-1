@@ -1,159 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="normalize.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <!-- Titulo -->
-    <title>Clínica San Judas</title>
+    <!-- Encabezado y enlaces a archivos CSS y JS -->
   </head>
+
   <body>
+    <!-- Contenido de la página -->
+
     <%- include('partials/menu.ejs') %>
+
     <div class="consulta">
       <form class="consulta-form" action="" method="post">
         <h2>Consultar Cita</h2>
         <div class="inputs">
-          <!-- ESPECIALIDAD -->
           <select class="especialidad" name="especialidad" id="especialidad">
-            <option value="--">Especialidad</option>
-            <% rows_doctor.forEach(function(especialidad) { %>
-            <option value="<%= especialidad.especialidad %>">
-              <%= especialidad.especialidad %>
-            </option>
-            <% }); %>
+            <% especialidades.forEach(especialidad => { %>
+              <option value="<%= especialidad %>"><%= especialidad %></option>
+            <% }) %>
           </select>
-          <!-- Elegir doctor -->
-          <div class="doctor" id="ctn-bars-search">
-            <!-- Imput DE DOCTOR
-            <input type="text" name="doctor" id="doctor" placeholder="Nombre del Doctor" list="doctores" />
-            <datalist id="doctores">
-            <% rows_doctor.forEach(function(nombre) { %>
-              <option value="<%= nombre.nombre %>">
-                <%= nombre.nombre %>
-              </option>
-            <% }); %>
-            <select class="especialidad" name="especialidad" id="especialidad">
-              <option value="--">Nombre del Doctor</option>
-              <% rows_doctor.forEach(function(nombre) { %>
-              <option value="<%= nombre.nombre %>">
-                <%= nombre.nombre %>
-              </option>
-              <% }); %>
-            </select>
-            -->
-            <form autocomplete="off">
-              <input type="text" id="input" placeholder="Type a nombre">
-              <ul class="list"></ul>
-          </form>
-          </div>
-  
-          <!-- <ul id="caja-busqueda">
-            <% rows_doctor.forEach(function(nombre) { %>
-            <li>
-              <a class="busqueda-item"><%= nombre.nombre %></a>
-            </li>
-            <% }); %>
-          </ul> -->
-  
-          <div id="cover-ctn-search"></div>
-  
-          <input class="fecha" name="fecha" type="date" id="fecha" min="<%= fechaActual%>" value="<%= fechaActual %>" />
-  
+
+          <select name="doctor" id="doctor">
+            <% if (typeof doctoresPorEspecialidad !== 'undefined') {
+              const especialidadSeleccionada = especialidades[0]; // Especialidad seleccionada por defecto
+              const doctores = doctoresPorEspecialidad[especialidadSeleccionada] || [];
+              doctores.forEach(nombreDoctor => { %>
+                <option value="<%= nombreDoctor %>"><%= nombreDoctor %></option>
+              <% });
+            } %>
+          </select>
+
+          <input class="fecha" name="fecha" type="date" id="fecha" min="<%= fechaActual %>" value="<%= fechaActual %>" />
           <button class="btn-enviar" type="submit">consultar</button>
         </div>
       </form>
     </div>
 
-  <script>
-    let names = ["Eyder","Gianella"];
-let input = document.getElementById("input");
-input.addEventListener("keyup",(e) => {
-   removeElements();
-   for (let i of names) {
-
-      if (i.toLowerCase().startsWith(input.value.toLowerCase()) &&
-      input.value != "") {
-         let listItem = document.createElement("li");
-         listItem.classList.add("list-items");
-         listItem.style.cursor = "pointer";
-         listItem.setAttribute("onclick","displayNames('" + i + "')'");
-         let word = "<b>"+ i.substr(0,input.value.length) +"</b>";
-         word += i.substr(input.value.length);
-         listItem.innerHTML = word;
-         document.querySelector(".list").appendChild(listItem);
-      }
-   }
-});
-function displayNames(value) {
-   input.value = value;
-}
-function removeElements() {
-   let items = document.querySelectorAll(".list-items");
-   items.forEach((item) => {
-      item.remove();
-   })
-}
-  </script>
+    <script>
+      
+    </script>
   </body>
-
-  <script>
-    const input2 = document.getElementById("doctor");
-    const boxSearch = document.getElementById("caja-busqueda");
-    const elemento=document.getElementsByClassName("busqueda-item")
-
-    for(let i=0;i<elemento.length;i++){
-      elemento[i].addEventListener("click",function(event){
-        const clickeado=event.target.textContent
-        input2.value=clickeado
-      })
-    }
-
-    input2.addEventListener("input", function (event) {
-      const filtro = event.target.value.toUpperCase();
-      const lis = boxSearch.getElementsByTagName("li");
-
-      // Filtrar elementos
-      for (let i = 0; i < lis.length; i++) {
-        const a = lis[i].getElementsByTagName("a")[0];
-        const textValue = a.textContent || a.innerText;
-
-        if (textValue.toUpperCase().indexOf(filtro) > -1) {
-          lis[i].style.display = "";
-          boxSearch.style.display = "block";
-          if (event.target.value===""){
-            boxSearch.style.display="none"
-          }
-        } else {
-          lis[i].style.display = "none";
-        }
-      }
-    });
-
-    // Eyder Validar EL DOCTOR A INGRESAR
-// var input = document.querySelector('input2[name="doctor"]');
-// var datalist = document.querySelector('#doctores');
-
-// input.addEventListener('input', function() {
-//   var inputValue = input2.value.toLowerCase();
-//   var options = datalist.getElementsByTagName('option');
-//   var found = false;
-
-//   for (var i = 0; i < options.length; i++) {
-//     var optionValue = options[i].value.toLowerCase();
-
-//     if (optionValue === inputValue) {
-//       found = true;
-//       break;
-//     }
-//   }
-
-//   if (!found) {
-//     input.setCustomValidity('Seleccione una opción válida');
-//   } else {
-//     input.setCustomValidity('');
-//   }
-// });
-//Eyder 2
-  </script>
 </html>
