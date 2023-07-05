@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="estado.style.css" />
@@ -26,14 +26,14 @@
           </div>
           <div class="sh">procesando</div>
         </div>
-  
+
         <div class="burbuja" id="atendiendo">
           <div class="burbuja-icono">
             <i class="fa-solid fa-user-doctor"></i>
           </div>
           <div class="sh">atendiendo</div>
         </div>
-  
+
         <div class="burbuja" id="finalizado">
           <div class="burbuja-icono">
             <i class="fa-regular fa-flag"></i>
@@ -44,19 +44,21 @@
     </div>
 
     <script>
-        // const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
+      const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
       estados.forEach(estado => {
         if(estado==0){
           document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
-          if(estado==1){
+        }
+        if(estado==1){
+          document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
           }
           if(estado==2){
+            document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
+            document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("finalizado").style.backgroundColor="rgba(76, 216, 118, 255)"
           }
-        }        
       });
     </script>
-    
   </body>
 </html>
