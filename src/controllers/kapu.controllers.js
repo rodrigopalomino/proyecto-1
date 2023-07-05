@@ -31,10 +31,6 @@ export const postFormulario = async (req, res) => {
     tabla.forEach(f_dni => {
         if(dni == f_dni.dni){
             validar=false
-            console.log("==========")
-            console.log("dni : ",dni)
-            console.log("f_dni : ",f_dni.dni)
-            console.log("==========")
         }
         console.log("validar :",validar)
     })
