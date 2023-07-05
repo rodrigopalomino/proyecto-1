@@ -21,7 +21,7 @@
 
           <select name="doctor" id="doctor">
             <% if (typeof doctoresPorEspecialidad !== 'undefined') {
-              const especialidadSeleccionada = especialidades[0]; // Especialidad seleccionada por defecto
+              const especialidadSeleccionada = especialidades[0];
               const doctores = doctoresPorEspecialidad[especialidadSeleccionada] || [];
               doctores.forEach(nombreDoctor => { %>
                 <option value="<%= nombreDoctor %>"><%= nombreDoctor %></option>
@@ -35,8 +35,5 @@
       </form>
     </div>
 
-    <script>
-      
-    </script>
   </body>
 </html>
