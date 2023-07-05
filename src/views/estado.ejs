@@ -9,7 +9,7 @@
   </head>
   <body>
     <%- include('partials/menu.ejs') %>
-    <link rel="stylesheet" href="estado.style.css" />
+    <!-- <link rel="stylesheet" href="estado.style.css" /> -->
     <h1>Tus Citas</h1>
 
     <div class="estado-consulta">
@@ -58,9 +58,11 @@
       estados.forEach(estado => {
         if(estado==2){
           document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
+          document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
+          document.getElementById("finalizado").style.backgroundColor="rgba(76, 216, 118, 255)"
         }
         if(estado==1){
-          document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
+            document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("atendiendo").style.backgroundColor="rgba(76, 216, 118, 255)"
             document.getElementById("finalizado").style.backgroundColor="rgba(76, 216, 118, 255)"
           }

@@ -49,7 +49,7 @@ export const postFormulario = async (req, res) => {
     setTimeout(async () => {
     await pool.query('UPDATE cita SET estado = ? WHERE codigo = ?', [1, codigo[0].codigo+1])
     console.log(`Estado actualizado para citaId: ${codigo[0].codigo}`)
-    }, 1 * 60 * 1000) 
+    }, 200000) 
 
 
     res.redirect(`estado?doctor=${doctor}&nombre=${nombre}&fecha=${fecha}`)
