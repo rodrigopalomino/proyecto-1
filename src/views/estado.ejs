@@ -3,17 +3,59 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estado.style.css" />
+    
     <title>Estado</title>
   </head>
   <body>
     <%- include('partials/menu.ejs') %>
-
+    <link rel="stylesheet" href="estado.style.css" />
     <h1>Tus Citas</h1>
 
+    
     <div class="estado-consulta">
+      <h3 class="estado-h3">ID cita : <%= tabla_completa[tabla_completa.length-1].codigo %></h3>
+
+      <div class="estado-grupo">
+        <p class="estado-parrafo">Paciente: <%= tabla_completa[tabla_completa.length-1].nombre %></p>
+        <div class="burbujas">
+          <div class="burbuja" id="procesando">
+            <div class="burbuja-icono">
+              <i class="fa-solid fa-stethoscope"></i>
+            </div>
+            <div class="sh">procesando</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="estado-grupo">
+        <p class="estado-parrafo">Doctor: <%= tabla_completa[tabla_completa.length-1].doctor %></p>
+        <div class="burbujas">
+          <div class="burbuja" id="atendiendo">
+            <div class="burbuja-icono">
+              <i class="fa-solid fa-user-doctor"></i>
+            </div>
+            <div class="sh">procesando</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="estado-grupo">
+        <p class="estado-parrafo">Fecha: <%= tabla_completa[tabla_completa.length-1].fecha_f %></p>
+        <div class="burbujas">
+          <div class="burbuja" id="finalizado">
+            <div class="burbuja-icono">
+              <i class="fa-regular fa-flag"></i>
+            </div>
+            <div class="sh">procesando</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- <div class="estado-consulta">
       <div class="datos">
-        <h3>IdCita: <%= tabla_completa[tabla_completa.length-1].codigo %></h3>
+        <h3>IdCita: </h3>
         <p>Paciente: <%= tabla_completa[tabla_completa.length-1].nombre %></p>
         <p>Doctor: <%= tabla_completa[tabla_completa.length-1].doctor %></p>
         <p>Fecha: <%= tabla_completa[tabla_completa.length-1].fecha_f %></p>
@@ -41,7 +83,7 @@
           <div class="sh">atendido</div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <script>
       const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;

@@ -32,7 +32,6 @@ export const postFormulario = async (req, res) => {
         if(dni == f_dni.dni){
             validar=false
         }
-        console.log("validar :",validar)
     })
 
     if (validar == true ) {
