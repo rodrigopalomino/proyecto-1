@@ -43,5 +43,14 @@ export const postFormulario = async (req, res) => {
 
     await pool.query('INSERT INTO cita (estado, id_doctor, dni_paciente, fecha) VALUES (?, ?, ?, ?)', [0, id_doctor, dni, fecha])
 
+    const [codigo] = await pool.query('select count(codigo) as codigo from cita;')
+    console.log("codigo: ",codigo[0].codigo)
+
+    setTimeout(async () => {
+    await pool.query('UPDATE cita SET estado = ? WHERE codigo = ?', [1, codigo[0].codigo+1])
+    console.log(`Estado actualizado para citaId: ${codigo[0].codigo}`)
+    }, 1 * 60 * 1000) 
+
+
     res.redirect(`estado?doctor=${doctor}&nombre=${nombre}&fecha=${fecha}`)
 }

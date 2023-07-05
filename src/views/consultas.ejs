@@ -34,7 +34,7 @@
                 <% tabla_completa.forEach( fila => { %>
                 <tr>
                     <td> <%= fila.codigo %> </td>
-                    <td class='<%= fila.estado== 0 ? "atendiendo" : "atendido"  %>'> <%= fila.estado== 0 ? "atendiendo" : "atendido"  %> </td>
+                    <td class='<%= fila.estado == 2 ? "atendiendo" : "atendido"  %>'> <%= fila.estado == 2 ? "atendiendo" : "atendido"  %> </td>
                     <td> <%= fila.nombre %> </td>
                     <td> <%= fila.doctor %> </td>
                     <td> <%= (fila.fecha).toString().substring(0, 10) %> </td>
