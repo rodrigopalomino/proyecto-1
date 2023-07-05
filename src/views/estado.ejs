@@ -56,7 +56,7 @@
     <script>
       const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
       estados.forEach(estado => {
-        if(estado==0){
+        if(estado==2){
           document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"
         }
         if(estado==1){
