@@ -9,11 +9,13 @@
 <body>
     <%- include('partials/menu.ejs') %>
 
-    <form method="post">
-        <label for="">buscar</label>
-        <input type="text" id="codigo" name="codigo">
-        <button type="submit">buscar</button>
-    </form>
+    <div class="consulta-buscador">
+        <form method="post">
+            <label for="">buscar</label>
+            <input type="text" id="codigo" name="codigo">
+            <button type="submit">buscar</button>
+        </form>
+    </div>
 
     <h1>Tu consulta</h1>
     <div class="table-conteiner">
@@ -33,7 +35,7 @@
                     <td class='<%= tabla_completa[0].estado == 0 ? "atendiendo" : "atendido"  %>'><%= tabla_completa[0].estado == 0 ? "atendiendo" : "atendido"  %></td>
                     <td><%= tabla_completa[0].nombre %></td>
                     <td><%= tabla_completa[0].doctor %></td>
-                    <td><%= (tabla_completa[0].fecha).toString().substring(0, 10) %></td>
+                    <td><%= (tabla_completa[0].fecha)%></td>
                 </tr>
             </tbody>
         </table>
