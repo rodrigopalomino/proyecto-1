@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/icono.ico">
     <link rel="stylesheet" href="../styles/kapu.style.css">
+    
     <title>Clínica San Judas</title>
   </head>
 
@@ -13,23 +14,23 @@
 
     <div class="formulario-p">
 
-      <form class="formulario" method="post">
+      <form class="formulario" method="post" id="formulario">
         
         <h2>CITA</h2>
 
-        <div class="campo">
+        <div class="campo" id="campo-nombre">
           <label for="">nombre</label>
           <input type="text" id="nombre" name="nombre"/>
           <p class="advertencia">El nombre solo debe contener letras</p>
         </div>
 
-        <div class="campo">
+        <div class="campo" id="campo-telefono">
           <label for="">telefono</label>
           <input type="text" id="telefono" name="telefono"/>
           <p class="advertencia">solo numeros y 9 cifras</p>
         </div>
 
-        <div class="campo">
+        <div class="campo" id="campo-dni">
           <label for="">dni</label>
           <input type="text" id="dni" name="dni"/>
           <p class="advertencia">solo numeros y 8 cifras</p>
@@ -53,7 +54,11 @@
         <div class="campo">
           <button type="submit">estado</button>
         </div>
+
       </form>
     </div>
+
+    <script src="js/kapu.js"></script>
+    
   </body>
 </html>

@@ -170,10 +170,16 @@ font-size: 50px;
 .advertencia {
     color: red;
     font-size: 14px;
+    display: none;
 }
 
-/* Media Queries */
+.advertencia-activa {
+    display: block;
+}
 
+
+/* Media Queries */
+/*===============================================================================*/
 @media (max-width: 768px) {
   /* Adjust styles for screens up to a maximum width of 768px */
 
