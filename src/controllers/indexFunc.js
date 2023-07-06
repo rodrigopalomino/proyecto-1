@@ -16,7 +16,7 @@ export const principal =async (req, res) => {
       doctoresPorEspecialidad[especialidad] = [nombre];
     }
   });
-  console.log("doctores : ",doctoresPorEspecialidad)
+
   const fechaActual=new Date().toISOString().split('T')[0];
 
   
