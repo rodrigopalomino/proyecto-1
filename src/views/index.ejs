@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Encabezado y enlaces a archivos CSS y JS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Clínica San Judas</title>
   </head>
 
   <body>
-    <!-- Contenido de la página -->
-
     <%- include('partials/menu.ejs') %>
 
     <div class="consulta">
@@ -21,7 +23,7 @@
 
           <select name="doctor" id="doctor">
             <% if (typeof doctoresPorEspecialidad !== 'undefined') {
-              const especialidadSeleccionada = especialidades[0];
+              const especialidadSeleccionada = especialidades[0]; // Especialidad seleccionada por defecto
               const doctores = doctoresPorEspecialidad[especialidadSeleccionada] || [];
               doctores.forEach(nombreDoctor => { %>
                 <option value="<%= nombreDoctor %>"><%= nombreDoctor %></option>
@@ -35,5 +37,30 @@
       </form>
     </div>
 
+    <script>
+      // Código JavaScript para actualizar las opciones del select de doctores
+      const selectEspecialidad = document.getElementById('especialidad');
+      const selectDoctor = document.getElementById('doctor');
+      
+      const doctoresPorEspecialidad = <%- JSON.stringify(doctoresPorEspecialidad) %>;
+
+      selectEspecialidad.addEventListener('change', () => {
+        const especialidadSeleccionada = selectEspecialidad.value;
+        const doctores = doctoresPorEspecialidad[especialidadSeleccionada] || [];
+        console.log("especilidad :",especialidadSeleccionada)
+        console.log("docteres :",doctores)
+
+        // Limpiar las opciones anteriores
+        selectDoctor.innerHTML = '';
+
+        // Agregar las nuevas opciones
+        doctores.forEach(nombreDoctor => {
+          const option = document.createElement('option');
+          option.value = nombreDoctor;
+          option.textContent = nombreDoctor;
+          selectDoctor.appendChild(option);
+        });
+      });
+    </script>
   </body>
 </html>
