@@ -6,15 +6,16 @@
 
     <link rel="icon" href="img/icono.ico">
     
-    <link rel="stylesheet" href="styles/index.style.css">
+    
     <link rel="stylesheet" href="styles/estado.style.css">
+    
     <title>Clínica San Judas</title>
   </head>
 
   <body>
 
     <%- include('partials/menu.ejs') %>
-
+    <link rel="stylesheet" href="styles/index.style.css">
     <h1>Tus Citas</h1>
 
     <div class="estado-consulta">
@@ -40,7 +41,7 @@
             <div class="burbuja-icono">
               <i class="fa-solid fa-user-doctor"></i>
             </div>
-            <div class="sh">procesando</div>
+            <div class="sh" id="sh">procesando</div>
           </div>
         </div>
       </div>
@@ -59,7 +60,7 @@
     </div>
 
     <script>
-      const estados = <%= JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
+      const estados = <%- JSON.stringify(tabla_completa.map(fila => fila.estado)) %>;
       estados.forEach(estado => {
         if(estado==2){
           document.getElementById("procesando").style.backgroundColor="rgba(76, 216, 118, 255)"

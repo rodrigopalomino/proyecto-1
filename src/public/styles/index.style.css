@@ -148,14 +148,15 @@ h1 {
   text-align: center;
 }
 
-.sh {
+.burbuja .sh {
   display: none;
   text-transform: uppercase;
   font-size: 10px;
   font-weight: bold;
 }
 
-.burbuja:hover + .sh {
+
+.burbuja:hover .sh {
   display: inline-block;
 }
 

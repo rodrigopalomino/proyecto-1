@@ -1,4 +1,10 @@
 import { pool } from "../db.js";
+import cron from "node-cron"
+
+const actualizarEstadoCita = async (codigo) => {
+    await pool.query('UPDATE cita SET estado = ? WHERE codigo = ?', [1, codigo]);
+    console.log(`Estado actualizado para citaId: ${codigo}`);
+};
 
 export const getFormulario = (req, res) => {
     // Guarda las variables del primer formulario en variables locales
@@ -46,10 +52,12 @@ export const postFormulario = async (req, res) => {
     const [codigo] = await pool.query('select count(codigo) as codigo from cita;')
     console.log("codigo: ",codigo[0].codigo)
 
-    setTimeout(async () => {
-    await pool.query('UPDATE cita SET estado = ? WHERE codigo = ?', [1, codigo[0].codigo+1])
-    console.log(`Estado actualizado para citaId: ${codigo[0].codigo}`)
-    }, 200000) 
+    if (codigo[0].codigo) {
+        console.log("esperando ")
+        cron.schedule('0 */2 * * *', () => {
+            actualizarEstadoCita(codigo[0].codigo);
+        });
+    }
 
 
     res.redirect(`estado?doctor=${doctor}&nombre=${nombre}&fecha=${fecha}`)
